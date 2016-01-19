@@ -1,0 +1,135 @@
+//
+//  ingredients.swift
+//  haya
+//
+//  Created by 신지민 on 2016. 1. 9..
+//  Copyright © 2016년 신지민. All rights reserved.
+//
+
+import UIKit
+
+class IngredientsController: UITableViewController {
+    
+    // MARK: Properties
+    
+    var tools = [Tool]()
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        loadSampleMeals()
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+        
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func loadSampleMeals() {
+        
+        let tool1 = Tool(name: "식용유", rating: 5)!
+        
+        let tool2 = Tool(name: "소금", rating: 4)!
+        
+        let tool3 = Tool(name: "설탕",rating: 5)!
+        
+        let tool4 = Tool(name: "간장", rating: 4)!
+        
+        let tool5 = Tool(name: "된장", rating: 2)!
+        
+        let tool6 = Tool(name: "고추장", rating: 3)!
+    
+        let tool7 = Tool(name: "고춧가루", rating: 3)!
+        
+        let tool8 = Tool(name: "후추", rating: 2)!
+        
+        let tool9 = Tool(name: "참기름", rating: 3)!
+        
+        let tool10 = Tool(name: "들기름", rating: 2)!
+        
+        
+        tools += [tool1, tool2, tool3, tool4, tool5, tool6, tool7, tool8, tool9, tool10]
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Table view data source
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tools.count
+    }
+    
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cellIdentifier = "IngredientsCell"
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! IngredientsCell
+
+        let tool = tools[indexPath.row]
+        
+        
+
+        // Configure the cell...
+        
+        return cell
+    }
+    
+    
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    // Return false if you do not want the specified item to be editable.
+    return true
+    }
+    */
+    
+    /*
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    if editingStyle == .Delete {
+    // Delete the row from the data source
+    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+    } else if editingStyle == .Insert {
+    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
+    }
+    */
+    
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+    
+    }
+    */
+    
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    // Return false if you do not want the item to be re-orderable.
+    return true
+    }
+    */
+    
+    /*
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
+    }
+    */
+    
+}
+
