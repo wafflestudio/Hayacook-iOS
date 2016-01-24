@@ -9,22 +9,22 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "haya/TableViewController.swift"
-            timestampString = "473793604.393721"
+            filePath = "haya/IngredientsCollectionViewCell.swift"
+            timestampString = "475326174.186296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7"
-            endingLineNumber = "7">
+            startingLineNumber = "8"
+            endingLineNumber = "8">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "haya.TableViewController.__deallocating_deinit"
+                  symbolName = "haya.IngredientsCollectionViewCell.__deallocating_deinit"
                   moduleName = "haya"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jeemin/Desktop/waffle/haya/haya/TableViewController.swift"
-                  timestampString = "473793604.411171"
+                  urlString = "file:///Users/jeemin/Desktop/waffle/haya/haya/IngredientsCollectionViewCell.swift"
+                  timestampString = "475326174.192521"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -35,46 +35,31 @@
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "haya.TableViewController.init (haya.TableViewController.Type)(style : __C.UITableViewStyle) -&gt; haya.TableViewController"
+                  symbolName = "haya.IngredientsCollectionViewCell.init (haya.IngredientsCollectionViewCell.Type)(frame : __C.CGRect) -&gt; haya.IngredientsCollectionViewCell"
                   moduleName = "haya"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jeemin/Desktop/waffle/haya/haya/TableViewController.swift"
-                  timestampString = "473793604.4121"
+                  urlString = "file:///Users/jeemin/Desktop/waffle/haya/haya/IngredientsCollectionViewCell.swift"
+                  timestampString = "475326174.192833"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "23">
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "54">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "haya.TableViewController.init (haya.TableViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; haya.TableViewController"
+                  symbolName = "haya.IngredientsCollectionViewCell.init (haya.IngredientsCollectionViewCell.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;haya.IngredientsCollectionViewCell&gt;"
                   moduleName = "haya"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jeemin/Desktop/waffle/haya/haya/TableViewController.swift"
-                  timestampString = "473793604.412319"
+                  urlString = "file:///Users/jeemin/Desktop/waffle/haya/haya/IngredientsCollectionViewCell.swift"
+                  timestampString = "475326174.19306"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "65">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "haya.TableViewController.init (haya.TableViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;haya.TableViewController&gt;"
-                  moduleName = "haya"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jeemin/Desktop/waffle/haya/haya/TableViewController.swift"
-                  timestampString = "473793604.41254"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "26">
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
