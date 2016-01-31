@@ -15,12 +15,17 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
    
     @IBOutlet weak var heightMargin: NSLayoutConstraint!
     
+    @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var table2: UITableView!
 
 
-    let tableData = ["양파", "당근", "무", "계란", "닭고기", "쇠고기", "돼지고기", "참치", "호박", "배추", "감자", "양송이", "팽이버섯", "치즈", "단무지", "가지"]
+    let tableData = ["양파", "당근", "무", "계란", "닭고기", "쇠고기", "돼지고기", "참치", "호박", "배추", "감자", "양송이", "팽이버섯", "치즈", "단무지", "가지", "두부", "간장", "김치", "된장"]
+    
+    var tableData2 = [Recipe]()
 
     var filteredTableData = [String]()
+    var filteredTableData2 = [Recipe]()
     
     var havingIngredients = [String]()
     
@@ -36,14 +41,32 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
 
     var shouldShowSearchResults = false
     
+    
+////////////////////////////////////////////////////////////////////////////////////////////////////
+    func makingRecipe(){
+        let temp : Recipe = Recipe()
+        temp.name = "김치찌개"
+        temp.Ingredients = ["김치", "감자", "양파", "당근"]
+        tableData2.append(temp)
+    
+        let temp2 : Recipe = Recipe()
+        temp2.name = "된장찌개"
+        temp2.Ingredients = ["두부", "된장", "감자", "버섯", "양파"]
+        tableData2.append(temp2)
+    }
+    
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    
     func configureSearchController() {
         searchController = UISearchController(searchResultsController: nil)
         
+        table.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
         searchController.searchBar.delegate = self
-        table.tableHeaderView = searchController.searchBar
+        //table.tableHeaderView = searchController.searchBar
     
         searchController.searchBar.barTintColor = UIColor (red:0.75, green:0.75, blue:0.75, alpha:1)
         searchController.searchBar.layer.borderWidth = 1
@@ -51,7 +74,7 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
         
         self.definesPresentationContext = false
         searchController.hidesNavigationBarDuringPresentation = false
-        table.tableFooterView = UIView(frame: CGRectZero)
+        //table.tableFooterView = UIView(frame: CGRectZero)
 
     }
 
@@ -61,8 +84,12 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableHeight.constant = 44
+        //tableHeight.constant = 44 * CGFloat(filteredTableData.count + 1) + 20
         configureSearchController()
+        makingRecipe()
         table.tableFooterView = UIView(frame: CGRectZero)  //searching 안하는 동안 table view cell 감추기
+        
        // collection.backgroundColor = UIColor.redColor()
         
         //let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -97,6 +124,7 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
 
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
     
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectioncell", forIndexPath: indexPath) as! IngredientsCollectionViewCell
         //cell.backgroundColor = UIColor (red:0.9, green:0.6, blue:0.4, alpha:1)
@@ -116,9 +144,30 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
         collection.reloadData()
         
         if(havingIngredients.count == 0){
+            self.searchController.active = false;
             self.heightMargin.constant = 0
+            self.tableHeight.constant = 44
         
         }
+        
+        var flagg = true;
+        
+        filteredTableData2.removeAll(keepCapacity: false)
+    
+        if !(havingIngredients.count == 0) {
+        for( var i = 0 ; i < (tableData2.count) ; i++){
+            flagg = true;
+            for ( var j = 0; j < (havingIngredients.count) ; j++){
+                if !(tableData2[i].Ingredients.contains(havingIngredients[j])){
+                    flagg = false;
+                    break;
+                }}
+            if(flagg) {
+                filteredTableData2.append(tableData2[i])}
+            }}
+        
+        
+        table2.reloadData()
 
     }
     
@@ -144,31 +193,78 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
         return 1
     }
     
+    func tableView( tableView : UITableView,  titleForHeaderInSection section: Int)->String? {
+        if (tableView == self.table2){
+            return "Recipe"
+        }
+        else { return "Ingredients"
+        }
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if (tableView == self.table){
+            return 20.0
+        }
+        
+        else { return 20.0 }
+    }
+    
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        if(tableView == self.table){
         
             if searchController.active && searchController.searchBar.text != "" {
                 return filteredTableData.count
             }
            return 0
             //tableData.count  //원래는 tableData.count
-            }
-        
+        }
+    
+        else{
+            return filteredTableData2.count
+        }
+        }
+    
+    
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+            
+        if(tableView == self.table){
         
             let cell = tableView.dequeueReusableCellWithIdentifier("mycell", forIndexPath: indexPath)
             if searchController.active && searchController.searchBar.text != "" {
                cell.textLabel?.text = filteredTableData[indexPath.row]
             } else {
-                cell.textLabel?.text = tableData[indexPath.row]
+            
+                cell.textLabel?.text = nil
             }
+            return cell}
+        
+        else{
+            let cell = tableView.dequeueReusableCellWithIdentifier("mycell2", forIndexPath: indexPath) as! RecipeTableViewCell
+        
+                cell.name.text = filteredTableData2[indexPath.row].name
+                cell.time.text = "\(filteredTableData2[indexPath.row].time)"
+                cell.difficulty.text = "\(filteredTableData2[indexPath.row].difficulty)"
+                cell.trash.text = "\(filteredTableData2[indexPath.row].trash)"
+            
+            
+                //cell.textLabel?.text = filteredTableData2[indexPath.row].name
+        
+            
             return cell
-            }
+        }
+ 
+    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
        // heightMargin.constant = 60
         
+        if(tableView == self.table){
         let text = filteredTableData[indexPath.row]
         havingIngredients.insert(text, atIndex: 0)
         var result = "willbechanged"
@@ -188,6 +284,24 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
         
         IngredientsImages.insert(UIImage(named: result)!, atIndex: 0)
         collection.reloadData()
+            
+        var flagg = true;
+            
+        filteredTableData2.removeAll(keepCapacity: false)
+            
+        for( var i = 0 ; i < (tableData2.count) ; i++){
+            flagg = true;
+            for ( var j = 0; j < (havingIngredients.count) ; j++){
+                if !(tableData2[i].Ingredients.contains(havingIngredients[j])){
+                    flagg = false;
+                    break;
+                }}
+            if(flagg) {
+                filteredTableData2.append(tableData2[i])}
+            }
+        
+        
+        table2.reloadData()
         
         if(heightMargin.constant == 60){
             self.searchController.active = false;
@@ -199,19 +313,30 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
             })*/
             //table.tableHeaderView = searchController.searchBar
             heightMargin.constant = 60
+            tableHeight.constant = 44 * CGFloat(filteredTableData.count + 1) + 20
             self.searchController.active = false;
         }
+        }
+        else{
         
-    }
+        
+            }
+            
+        }
     
     func updateSearchResultsForSearchController(searchController : UISearchController)
     {
             filteredTableData.removeAll(keepCapacity: false)
-            
+        
             let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
             let array = (tableData as NSArray).filteredArrayUsingPredicate(searchPredicate)
             filteredTableData = array as! [String]
-            
+        
+        if(filteredTableData.count != 0){
+            tableHeight.constant = 44 * CGFloat(filteredTableData.count + 1) + 20 }
+        else {
+            tableHeight.constant = 44
+        }
             self.table.reloadData()
     }
     

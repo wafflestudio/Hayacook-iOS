@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		052A56A81C54F4850045FD00 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A56A71C54F4850045FD00 /* RecipeTableViewCell.swift */; };
+		052A56AA1C54FCC40045FD00 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A56A91C54FCC40045FD00 /* Recipe.swift */; };
 		058B7AB81C3D7462000A9CF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058B7AB71C3D7462000A9CF6 /* AppDelegate.swift */; };
 		058B7ABA1C3D7462000A9CF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058B7AB91C3D7462000A9CF6 /* ViewController.swift */; };
 		058B7ABD1C3D7462000A9CF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 058B7ABB1C3D7462000A9CF6 /* Main.storyboard */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		052A56A71C54F4850045FD00 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		052A56A91C54FCC40045FD00 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		058B7AB41C3D7462000A9CF6 /* haya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = haya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		058B7AB71C3D7462000A9CF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		058B7AB91C3D7462000A9CF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				05E803A51C40FCC50024973D /* IngredientsTableViewCell.swift */,
 				05E803A71C4246320024973D /* SearchViewController.swift */,
 				05FC2D551C527CF7005EA37E /* IngredientsCollectionViewCell.swift */,
+				052A56A71C54F4850045FD00 /* RecipeTableViewCell.swift */,
+				052A56A91C54FCC40045FD00 /* Recipe.swift */,
 			);
 			path = haya;
 			sourceTree = "<group>";
@@ -286,12 +292,14 @@
 				05E803A81C4246320024973D /* SearchViewController.swift in Sources */,
 				05E803A61C40FCC50024973D /* IngredientsTableViewCell.swift in Sources */,
 				058B7AEE1C3D8108000A9CF6 /* RatingControl.swift in Sources */,
+				052A56A81C54F4850045FD00 /* RecipeTableViewCell.swift in Sources */,
 				058B7ABA1C3D7462000A9CF6 /* ViewController.swift in Sources */,
 				058B7AB81C3D7462000A9CF6 /* AppDelegate.swift in Sources */,
 				05FC2D561C527CF7005EA37E /* IngredientsCollectionViewCell.swift in Sources */,
 				05E8039E1C40DFFA0024973D /* CheckBox.swift in Sources */,
 				058B7AEC1C3D8012000A9CF6 /* Tool.swift in Sources */,
 				058B7AEA1C3D7F46000A9CF6 /* ToolTableViewController.swift in Sources */,
+				052A56AA1C54FCC40045FD00 /* Recipe.swift in Sources */,
 				05E803A41C40FC3C0024973D /* IngredientsTableViewController.swift in Sources */,
 				058B7AE81C3D796A000A9CF6 /* ToolTableViewCell.swift in Sources */,
 			);

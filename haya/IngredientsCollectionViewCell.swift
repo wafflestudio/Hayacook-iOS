@@ -22,6 +22,10 @@ class IngredientsCollectionViewCell: UICollectionViewCell {
         image.layer.borderColor = UIColor.whiteColor().CGColor
         image.layer.backgroundColor = UIColor.whiteColor().CGColor
         image.layer.cornerRadius = image.frame.height/2
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor (red:0.75, green:0.75, blue:0.75, alpha:1).CGColor
+        button.layer.backgroundColor = UIColor (red:0.75, green:0.75, blue:0.75, alpha:1).CGColor
+        button.layer.cornerRadius = button.frame.height/2
 
     }
 }
