@@ -1,4 +1,3 @@
-//
 //  SearchViewController.swift
 //  haya
 //
@@ -15,12 +14,17 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
    
     @IBOutlet weak var heightMargin: NSLayoutConstraint!
     
+   
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    
+    
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var table2: UITableView!
 
 
-    let tableData = ["양파", "당근", "무", "계란", "닭고기", "쇠고기", "돼지고기", "참치", "호박", "배추", "감자", "양송이", "팽이버섯", "치즈", "단무지", "가지", "두부", "간장", "김치", "된장"]
+    let tableData = ["아몬드", "고추", "식용유", "오이", "카레", "계란", "가지", "간장", "마늘", "청양고추", "애호박", "햄", "꽁치", "케찹", "강낭콩", "김치", "양파", "땅콩", "무", "고기", "소금", "소시지", "참기름", "설탕", "고구마", "단호박", "참치", "감자", "비엔나소시지"]
     
     var tableData2 = [Recipe]()
 
@@ -39,7 +43,7 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
     var IngredientsImages = [UIImage]()
     //var IngredientsImages = [UIImage(named: "carrot")!, UIImage(named: "egg")!, UIImage(named: "eggplant")]
 
-    var shouldShowSearchResults = false
+    //var shouldShowSearchResults = false
     
     
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -61,6 +65,7 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
     func configureSearchController() {
         searchController = UISearchController(searchResultsController: nil)
         
+        
         table.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -78,17 +83,33 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
 
     }
 
-
-
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     override func viewDidLoad() {
+     
         super.viewDidLoad()
+        
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor(red : 247/255, green : 247/255, blue : 247/255, alpha :1 )
+
+
+        //self.navigationController?.navigationBar.shadowImage = UIImage();
+        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+    
+        
         tableHeight.constant = 44
         //tableHeight.constant = 44 * CGFloat(filteredTableData.count + 1) + 20
         configureSearchController()
         makingRecipe()
         table.tableFooterView = UIView(frame: CGRectZero)  //searching 안하는 동안 table view cell 감추기
+        
         
        // collection.backgroundColor = UIColor.redColor()
         
@@ -100,6 +121,13 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
       //  collectionController.dataSource = self
       //  collectionController.delegate = self
        // collectionController.registerClass(CollectionViewCell.self, forCellWithReuseIdentifier: "collectioncell")
+        
+        let layout = self.collection.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
+        
+        
+        collection.dataSource = self
+        collection.delegate = self
         collection.backgroundColor = UIColor (red:0.75, green:0.75, blue:0.75, alpha:1)
         collection.layer.borderWidth = 1
         collection.layer.borderColor = UIColor (red:0.75, green:0.75, blue:0.75, alpha:1).CGColor
@@ -127,9 +155,13 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
         
     
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectioncell", forIndexPath: indexPath) as! IngredientsCollectionViewCell
+        
         //cell.backgroundColor = UIColor (red:0.9, green:0.6, blue:0.4, alpha:1)
        // cell.backgroundColor = self.searchController.searchBar.barTintColor
         //cell.textLabel?.text = "\(indexPath.section):\(indexPath.row)"
+       
+        print("reload")
+        
         cell.image.image = IngredientsImages[indexPath.row]
         cell.button.tag = indexPath.row
         cell.button.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -137,6 +169,7 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
         //cell.imageView?.image = UIImage(named: "circle")
         return cell
     }
+    
     
     func buttonClicked(sender : UIButton){
         havingIngredients.removeAtIndex(sender.tag)
@@ -171,21 +204,6 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
 
     }
     
-    /*
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-
-        havingIngredients.removeAtIndex(indexPath.row)
-        IngredientsImages.removeAtIndex(indexPath.row)
-        collection.reloadData()
-        
-        if(havingIngredients.count == 0){
-            heightMargin.constant = 0
-        }
-        
-    }
-
-    */
     
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -242,11 +260,14 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
             
                 cell.textLabel?.text = nil
             }
-            return cell}
+            
+            return cell
+        }
         
         else{
             let cell = tableView.dequeueReusableCellWithIdentifier("mycell2", forIndexPath: indexPath) as! RecipeTableViewCell
         
+            
                 cell.name.text = filteredTableData2[indexPath.row].name
                 cell.time.text = "\(filteredTableData2[indexPath.row].time)"
                 cell.difficulty.text = "\(filteredTableData2[indexPath.row].difficulty)"
@@ -261,6 +282,13 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
  
     }
     
+    ///////////////////////////////////////////
+    var chosenCellIndex = 0
+    var foodName = String()
+    var numberofRecipe = 0
+    
+    /////////////////////////////////////////// 넘겨줄 정보
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
        // heightMargin.constant = 60
         
@@ -272,17 +300,79 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
         
         switch text
         {
-                case "양파":
-                result = "carrot"
-                case "당근":
-                result = "carrot"
-                case "계란":
-                result = "egg"
-                default:
-                result = "eggplant"
+            case "참기름" :
+            result = "sesameoil-2"
+            case "케찹" :
+            result = "ketchup-2"
+            case "소금" :
+            result = "salt-2"
+            case "설탕" :
+            result = "sugar-2"
+            case "간장":
+            result = "ganjang-2"
+            case "식용유" :
+            result = "cookingoil-2"
+            
+            case "오이":
+            result = "cucumber-2"
+            case "마늘":
+            result = "garlic-2"
+            case "청양고추":
+            result = "green_chilli-2"
+            case "애호박":
+            result = "green_pumpkin-2"
+            case "강낭콩":
+            result = "kidney_bean-2"
+            case "김치" :
+            result = "kimchi-2"
+            case "땅콩" :
+            result = "peanut-2"
+            case "완두콩" :
+            result = "peas-2"
+            case "감자" :
+            result = "potato-2"
+            case "무" :
+            result = "radish-2"
+            case "햄" :
+            result = "ham-2"
+            case "고기" :
+            result = "red_meat-2"
+            case "소시지" :
+            result = "sausage-2"
+            case "고구마":
+            result = "sweet_potato-2"
+            case "단호박":
+            result = "sweet_pumpkin-2"
+            case "참치":
+            result = "tuna-2"
+            case "비엔나소시지":
+            result = "vienna_sausage-2"
+            case "꽁치":
+            result = "pacific_saury-2"
+            case "당근":
+            result = "carrot-2"
+            case "계란":
+            result = "egg-2"
+            case "가지":
+            result = "eggplant-2"
+            case "양파":
+            result = "onion-2"
+            case "카레":
+            result = "curry-2"
+            case "아몬드":
+            result = "almond-2"
+            case "고추":
+            result = "chilli-2"
+            
+            default:
+            result = "Cancel"
         }
         
         IngredientsImages.insert(UIImage(named: result)!, atIndex: 0)
+        //print(havingIngredients)
+        //print(IngredientsImages)
+        //print(tableHeight)
+            
         collection.reloadData()
             
         var flagg = true;
@@ -319,10 +409,35 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
         }
         else{
         
+            chosenCellIndex = indexPath.row  ///////////////// temper
+            foodName = filteredTableData2[indexPath.row].name
+            numberofRecipe = filteredTableData2[indexPath.row].top.count
+            
+            // Start segue with index of cell clicked
+            self.performSegueWithIdentifier("yourSegue", sender: self)
+
         
             }
             
         }
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        // get a reference to the second view controller
+        let secondViewController = segue.destinationViewController as! PageViewController
+        secondViewController.countOfLandingPage = numberofRecipe
+        print(numberofRecipe)
+        secondViewController.foodName = self.foodName
+        
+        // set a variable in the second view controller with the data to pass
+        
+    }
+
+    //////////////////////////////////////////////////////////////////////////////// PARAMETER 넘겨주기
+
     
     func updateSearchResultsForSearchController(searchController : UISearchController)
     {
@@ -338,6 +453,8 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
             tableHeight.constant = 44
         }
             self.table.reloadData()
+    
+        //print(filteredTableData)
     }
     
 }

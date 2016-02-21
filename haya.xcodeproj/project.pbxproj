@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051150F31C68673300745E59 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051150F21C68673300745E59 /* ContentViewController.swift */; };
+		051150F51C687BBC00745E59 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051150F41C687BBC00745E59 /* PageViewController.swift */; };
+		051151011C7450D500745E59 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 051151001C7450D500745E59 /* SWRevealViewController.m */; };
+		051151031C7471E100745E59 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051151021C7471E100745E59 /* MenuTableViewController.swift */; };
 		052A56A81C54F4850045FD00 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A56A71C54F4850045FD00 /* RecipeTableViewCell.swift */; };
 		052A56AA1C54FCC40045FD00 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A56A91C54FCC40045FD00 /* Recipe.swift */; };
 		058B7AB81C3D7462000A9CF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058B7AB71C3D7462000A9CF6 /* AppDelegate.swift */; };
@@ -45,6 +49,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		051150F21C68673300745E59 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		051150F41C687BBC00745E59 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		051150FE1C7450D500745E59 /* haya-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "haya-Bridging-Header.h"; sourceTree = "<group>"; };
+		051150FF1C7450D500745E59 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		051151001C7450D500745E59 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		051151021C7471E100745E59 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		052A56A71C54F4850045FD00 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		052A56A91C54FCC40045FD00 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		058B7AB41C3D7462000A9CF6 /* haya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = haya.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +106,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		051150FD1C7450B500745E59 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				051150FF1C7450D500745E59 /* SWRevealViewController.h */,
+				051151001C7450D500745E59 /* SWRevealViewController.m */,
+				051150FE1C7450D500745E59 /* haya-Bridging-Header.h */,
+			);
+			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
 		058B7AAB1C3D7462000A9CF6 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +139,7 @@
 		058B7AB61C3D7462000A9CF6 /* haya */ = {
 			isa = PBXGroup;
 			children = (
+				051150FD1C7450B500745E59 /* SWRevealViewController */,
 				058B7AED1C3D8108000A9CF6 /* RatingControl.swift */,
 				058B7AB71C3D7462000A9CF6 /* AppDelegate.swift */,
 				058B7AB91C3D7462000A9CF6 /* ViewController.swift */,
@@ -136,6 +157,9 @@
 				05FC2D551C527CF7005EA37E /* IngredientsCollectionViewCell.swift */,
 				052A56A71C54F4850045FD00 /* RecipeTableViewCell.swift */,
 				052A56A91C54FCC40045FD00 /* Recipe.swift */,
+				051150F21C68673300745E59 /* ContentViewController.swift */,
+				051150F41C687BBC00745E59 /* PageViewController.swift */,
+				051151021C7471E100745E59 /* MenuTableViewController.swift */,
 			);
 			path = haya;
 			sourceTree = "<group>";
@@ -298,10 +322,14 @@
 				05FC2D561C527CF7005EA37E /* IngredientsCollectionViewCell.swift in Sources */,
 				05E8039E1C40DFFA0024973D /* CheckBox.swift in Sources */,
 				058B7AEC1C3D8012000A9CF6 /* Tool.swift in Sources */,
+				051150F31C68673300745E59 /* ContentViewController.swift in Sources */,
 				058B7AEA1C3D7F46000A9CF6 /* ToolTableViewController.swift in Sources */,
+				051151031C7471E100745E59 /* MenuTableViewController.swift in Sources */,
+				051151011C7450D500745E59 /* SWRevealViewController.m in Sources */,
 				052A56AA1C54FCC40045FD00 /* Recipe.swift in Sources */,
 				05E803A41C40FC3C0024973D /* IngredientsTableViewController.swift in Sources */,
 				058B7AE81C3D796A000A9CF6 /* ToolTableViewCell.swift in Sources */,
+				051150F51C687BBC00745E59 /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,10 +469,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = haya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeemin.haya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "haya/haya-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -452,10 +483,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = haya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeemin.haya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "haya/haya-Bridging-Header.h";
 			};
 			name = Release;
 		};

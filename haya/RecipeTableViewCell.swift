@@ -11,6 +11,7 @@ import UIKit
 class RecipeTableViewCell: UITableViewCell {
     
     
+   
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var difficulty: UILabel!
