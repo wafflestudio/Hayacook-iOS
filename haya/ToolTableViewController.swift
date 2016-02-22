@@ -12,39 +12,44 @@ class ToolTableViewController: UITableViewController {
 
     // MARK: Properties
     
-    var tools = [Tool]()
+    var tools = [Tool]()  //가전제품
+    var tools2 = [Tool]()   //조리기구
+    
+    var selected = [String]()
+    //////////////////////////// 서버로 넘겨줄 것 ! segue 일어날 때 한 번에 넘겨주기
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.setHidesBackButton(true, animated:true)
+        
         loadSampleMeals()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     func loadSampleMeals() {
     
-        let tool1 = Tool(name: "가스레인지", rating: 5)!
+        let tool1 = Tool(name: "냄비", rating : 5)!
         
-        let tool2 = Tool(name: "인덕션", rating: 4)!
+        let tool2 = Tool(name: "가스레인지", rating: 5)!
         
-        let tool3 = Tool(name: "전자레인지",rating: 5)!
+        let tool3 = Tool(name: "인덕션", rating: 4)!
         
-        let tool4 = Tool(name: "오븐", rating: 4)!
+        let tool4 = Tool(name: "전자레인지",rating: 5)!
         
-        let tool5 = Tool(name: "믹서기", rating: 2)!
+        let tool5 = Tool(name: "오븐", rating: 4)!
         
-        let tool6 = Tool(name: "토스터", rating: 3)!
+        let tool6 = Tool(name: "믹서기", rating: 2)!
         
-        let tool7 = Tool(name: "후라이팬", rating: 5)!
+        let tool7 = Tool(name: "도마", rating : 3)!
+        
+        let tool8 = Tool(name: "토스터", rating: 3)!
+        
+        let tool9 = Tool(name: "후라이팬", rating: 5)!
         
         
-        tools += [tool1, tool2, tool3, tool4, tool5, tool6, tool7]
+        tools += [tool2, tool3, tool4, tool5, tool6, tool8]
+        tools2 += [tool1, tool9, tool7]
     
     }
 
@@ -56,11 +61,20 @@ class ToolTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tools.count
+        
+        var temp = 1
+        
+        if(section==0){
+            temp = tools.count
+        }
+        if(section==1) {
+            temp = tools2.count
+        }
+        return temp
     }
 
     
@@ -70,60 +84,85 @@ class ToolTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ToolTableViewCell
         
-        let tool = tools[indexPath.row]
+        var tool = tools[indexPath.row]
+        
+        if(indexPath.section == 0){
+            
+        }
+        
+        if(indexPath.section == 1){
+            tool = tools2[indexPath.row]
+        }
         
         cell.nameLabel.text = tool.name
         cell.ratingControl.rating = tool.rating
 
-        // Configure the cell...
-
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! ToolTableViewCell
+        
+        
+        if(cell.checked == false){
+            self.selected.append(cell.nameLabel.text!)
+            
+            cell.checked = true
+            cell.checkBox.image = UIImage(named: "Checkmark-18")
+            
+            //print(self.selected)
+        }
+        else {
+            cell.checked = false
+            cell.checkBox.image = nil
+            
+            let itemToRemove = cell.nameLabel.text
+            
+            while self.selected.contains(itemToRemove!) {
+                if let itemToRemoveIndex = self.selected.indexOf(itemToRemove!) {
+                    self.selected.removeAtIndex(itemToRemoveIndex)
+                }
+            }
+            
+            //print(self.selected)
+            
+           
+        }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+        
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+  
+        override func tableView(tableView: UITableView, titleForHeaderInSection section: Int)
+        -> String {
+            
+            if(section==0){
+                return "      가전제품                                                        활용도"
+            }
+            
+            if(section==1){
+                return "      조리기구                                                        활용도"
+            }
+            
+            return ""
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+       
+        
+        let sectionTitle: String = self.tableView(tableView, titleForHeaderInSection: section)
+        if sectionTitle == "" {
+            return nil
+        }
+        
+        let title: UILabel = UILabel()
+        
+        title.text = sectionTitle
+        title.textColor = UIColor.blackColor()
+        
+        title.backgroundColor = UIColor( red:247.0/255.0 , green: 247.0/255.0 ,  blue: 247.0/255.0 , alpha:1 )
+        title.font = UIFont.boldSystemFontOfSize(13)
+        
+        return title
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

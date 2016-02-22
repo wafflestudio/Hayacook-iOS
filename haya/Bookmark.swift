@@ -1,20 +1,18 @@
 //
-//  CheckBox.swift
+//  Bookmark.swift
 //  haya
 //
-//  Created by 신지민 on 2016. 1. 9..
+//  Created by 신지민 on 2016. 2. 21..
 //  Copyright © 2016년 신지민. All rights reserved.
 //
 
 import UIKit
 
-class CheckBox: UIButton {
+class Bookmark: UIButton {
     
     //images
-    let checkedImage = UIImage(named: "Checkmark-24")
-    //let unCheckedIamge
-    
-    
+    let checkedImage = UIImage(named: "Star Filled-30")
+    let unCheckedIamge = UIImage(named : "Star-30")
     
     //bool propetry
     var isChecked :Bool = false{
@@ -22,24 +20,18 @@ class CheckBox: UIButton {
             if isChecked == true {
                 self.setImage (checkedImage, forState : .Normal)
             }else{
-                self.setImage (nil, forState: .Normal)
+                self.setImage (unCheckedIamge, forState: .Normal)
             }
         }
     }
-
+    
     override func awakeFromNib() {
-        //self.layer.borderWidth = 0.8
-        //self.layer.borderColor = UIColor.grayColor().CGColor
-        self.layer.backgroundColor = UIColor(white: 0.75 , alpha: 1).CGColor
-        self.layer.cornerRadius = self.frame.height/2
-
-
         self.addTarget(self, action: "buttonClicked:", forControlEvents : UIControlEvents.TouchUpInside)
         self.isChecked = false
+        print("doing")
     }
     
     func buttonClicked(sender: UIButton) {
-        
         if(sender == self){
             if isChecked == true{
                 isChecked = false
@@ -48,5 +40,5 @@ class CheckBox: UIButton {
             }
         }
     }
-
+    
 }

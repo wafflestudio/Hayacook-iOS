@@ -26,8 +26,8 @@ class RatingControl: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        let filledStarImage = UIImage(named: "filledStar")
-        let emptyStarImage = UIImage(named: "emptyStar")
+        let filledStarImage = UIImage(named: "Star Filled-30")
+        let emptyStarImage = UIImage(named: "Star-30")
         
         for _ in 0..<5 {
             let button = UIButton()

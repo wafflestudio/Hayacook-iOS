@@ -26,6 +26,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
   ///////////////////////////////////////////////////// search view controller 에서 받아와야 하는 부분 
     ////////////////////////////////////////////////// var 로 고치고 prepare for Segue에서 넘겨준다. 
     
+    
     private func getItemController(itemIndex : Int) -> ContentViewController?{
         
         if itemIndex < countOfLandingPage {
@@ -87,8 +88,46 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
     }
 */
     
+    let checkedImage = UIImage(named: "Star Filled-30")
+    let unCheckedIamge = UIImage(named : "Star-30")
+
+
+    let button: UIButton = UIButton()
+    
+    func buttonClicked(sender: UIButton!) {
+            if isChecked == true{
+                isChecked = false
+        }
+            else{
+            isChecked = true
+        }
+    }
+
+     var isChecked :Bool = false{
+        didSet{
+            if isChecked == true {
+                button.setImage (checkedImage, forState : .Normal)
+            }else{
+                button.setImage (unCheckedIamge, forState: .Normal)
+            }
+        }
+    }
+  
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        button.setImage(UIImage(named: "Star-30"), forState: .Normal)
+        button.frame = CGRectMake(0, 0, 45, 45)
+        button.addTarget(self, action: "buttonClicked:", forControlEvents : UIControlEvents.TouchUpInside)
+        
+        let rightItem:UIBarButtonItem = UIBarButtonItem()
+        rightItem.customView = button
+        
+        self.navigationItem.rightBarButtonItem = rightItem
+       
         
       
        // print(countOfLandingPage)

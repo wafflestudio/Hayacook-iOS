@@ -29,6 +29,7 @@
 		05E803A61C40FCC50024973D /* IngredientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E803A51C40FCC50024973D /* IngredientsTableViewCell.swift */; };
 		05E803A81C4246320024973D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E803A71C4246320024973D /* SearchViewController.swift */; };
 		05FC2D561C527CF7005EA37E /* IngredientsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FC2D551C527CF7005EA37E /* IngredientsCollectionViewCell.swift */; };
+		05FD77351C79742A00FDA448 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FD77341C79742A00FDA448 /* Bookmark.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		05E803A51C40FCC50024973D /* IngredientsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewCell.swift; sourceTree = "<group>"; };
 		05E803A71C4246320024973D /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		05FC2D551C527CF7005EA37E /* IngredientsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsCollectionViewCell.swift; sourceTree = "<group>"; };
+		05FD77341C79742A00FDA448 /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				051150F21C68673300745E59 /* ContentViewController.swift */,
 				051150F41C687BBC00745E59 /* PageViewController.swift */,
 				051151021C7471E100745E59 /* MenuTableViewController.swift */,
+				05FD77341C79742A00FDA448 /* Bookmark.swift */,
 			);
 			path = haya;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				05E803A41C40FC3C0024973D /* IngredientsTableViewController.swift in Sources */,
 				058B7AE81C3D796A000A9CF6 /* ToolTableViewCell.swift in Sources */,
 				051150F51C687BBC00745E59 /* PageViewController.swift in Sources */,
+				05FD77351C79742A00FDA448 /* Bookmark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

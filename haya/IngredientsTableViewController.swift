@@ -14,16 +14,13 @@ class IngredientsTableViewController: UITableViewController {
     
     var tools = [Tool]()
     
+    var selected = [String]()
+    //////////////////////////// 서버로 넘겨줄 것 ! segue 일어날 때 한 번에 넘겨주기
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
          loadSampleMeals()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     func loadSampleMeals() {
@@ -87,6 +84,64 @@ class IngredientsTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! IngredientsTableViewCell
+        
+        
+        if(cell.checked == false){
+            self.selected.append(cell.name.text!)
+            
+            cell.checked = true
+            cell.checkBox.image = UIImage(named: "Checkmark-18")
+            
+            //print(self.selected)
+        }
+        else {
+            cell.checked = false
+            cell.checkBox.image = nil
+            
+            
+            let itemToRemove = cell.name.text
+            
+            while self.selected.contains(itemToRemove!) {
+                if let itemToRemoveIndex = self.selected.indexOf(itemToRemove!) {
+                    self.selected.removeAtIndex(itemToRemoveIndex)
+                }
+            }
+            
+            //print(self.selected)
+        }
+        
+        
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int)
+        -> String {
+            
+                return "      조미료                                                           활용도"
+    }
+
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        
+        let sectionTitle: String = self.tableView(tableView, titleForHeaderInSection: section)
+        if sectionTitle == "" {
+            return nil
+        }
+        
+        let title: UILabel = UILabel()
+        
+        title.text = sectionTitle
+        title.textColor = UIColor.blackColor()
+        
+        title.backgroundColor = UIColor( red:247.0/255.0 , green: 247.0/255.0 ,  blue: 247.0/255.0 , alpha:1 )
+        title.font = UIFont.boldSystemFontOfSize(13)
+        
+        return title
+    }
+
+
 
 
 

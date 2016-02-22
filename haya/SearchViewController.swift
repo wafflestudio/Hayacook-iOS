@@ -24,7 +24,7 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
     @IBOutlet weak var table2: UITableView!
 
 
-    let tableData = ["아몬드", "고추", "식용유", "오이", "카레", "계란", "가지", "간장", "마늘", "청양고추", "애호박", "햄", "꽁치", "케찹", "강낭콩", "김치", "양파", "땅콩", "무", "고기", "소금", "소시지", "참기름", "설탕", "고구마", "단호박", "참치", "감자", "비엔나소시지"]
+    let tableData = ["아몬드", "고추", "식용유", "오이", "카레", "계란", "가지", "간장", "마늘", "청양고추", "애호박", "햄", "꽁치", "케찹", "강낭콩", "김치", "양파", "땅콩", "무", "고기", "소금", "소시지", "참기름", "설탕", "고구마", "단호박", "참치", "감자", "비엔나소시지", "당근"]
     
     var tableData2 = [Recipe]()
 
@@ -160,7 +160,7 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
        // cell.backgroundColor = self.searchController.searchBar.barTintColor
         //cell.textLabel?.text = "\(indexPath.section):\(indexPath.row)"
        
-        print("reload")
+        //print("reload")
         
         cell.image.image = IngredientsImages[indexPath.row]
         cell.button.tag = indexPath.row
@@ -356,7 +356,7 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
             case "가지":
             result = "eggplant-2"
             case "양파":
-            result = "onion-2"
+            result = "onion"
             case "카레":
             result = "curry-2"
             case "아몬드":

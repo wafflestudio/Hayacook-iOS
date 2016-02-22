@@ -17,6 +17,24 @@ class Recipe {
         
         switch text
         {
+            
+        case "약불" :
+            result = "fire1"
+        case "중불" :
+            result = "fire2"
+        case "강불" :
+            result = "fire3"
+            
+        case "냄비" :
+            result = "pot"
+        case "후라이팬" :
+            result = "frypan"
+        case "도마" :
+            result = "cuttingBoard"
+        case "믹서기" :
+            result = "mixer"
+            
+            
         case "참기름" :
             result = "sesameoil-2"
         case "케찹" :
