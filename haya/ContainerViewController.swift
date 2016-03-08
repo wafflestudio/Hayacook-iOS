@@ -18,7 +18,10 @@ class ContainerViewController: UIViewController {
         
         self.navigationController?.navigationBarHidden = true
         
-       scrollView.contentSize = CGSizeMake(scrollView.contentSize.width,scrollView.frame.size.height)
+        //scrollView.contentSize = CGSizeMake(scrollView.contentSize.width, scrollView.frame.height)
+        
+        print(scrollView.frame.size.height)
+        print(scrollView.contentSize.height)
         
         // Initially close menu programmatically.  This needs to be done on the main thread initially in order to work.
         dispatch_async(dispatch_get_main_queue()) {
@@ -60,6 +63,9 @@ class ContainerViewController: UIViewController {
     // Use scrollview content offset-x to slide the menu.
     func closeMenu(animated:Bool = true){
         scrollView.setContentOffset(CGPoint(x: leftMenuWidth, y: 0), animated: animated)
+                
+        print("close", scrollView.frame.size.height)
+        print("close", scrollView.contentSize.height)
         
     }
     
@@ -67,6 +73,9 @@ class ContainerViewController: UIViewController {
     func openMenu(){
         print("opening menu")
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        
+        print("opne" , scrollView.frame.size.height)
+        print("open", scrollView.contentSize.height)
         
     }
     

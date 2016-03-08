@@ -154,14 +154,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q7p-hd-Ydi">
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q7p-hd-Ydi">
                                 <rect key="frame" x="0.0" y="0.0" width="376" height="667"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MxE-zo-wXT">
                                         <rect key="frame" x="0.0" y="0.0" width="376" height="667"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJo-rj-Cn6">
-                                                <rect key="frame" x="0.0" y="0.0" width="260" height="669"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="260" height="667"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="Pu8-Oa-bcD"/>
                                                 </constraints>
@@ -170,7 +170,7 @@
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S6Y-Mf-7xC">
-                                                <rect key="frame" x="262" y="0.0" width="114" height="669"/>
+                                                <rect key="frame" x="262" y="0.0" width="114" height="667"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
                                                         <real key="value" value="0.80000000000000004"/>
@@ -182,13 +182,9 @@
                                             </containerView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="ZJo-rj-Cn6" secondAttribute="bottom" id="4Gx-Bh-OYX"/>
                                             <constraint firstItem="ZJo-rj-Cn6" firstAttribute="leading" secondItem="MxE-zo-wXT" secondAttribute="leading" id="61a-aZ-yQY"/>
                                             <constraint firstAttribute="trailing" secondItem="S6Y-Mf-7xC" secondAttribute="trailing" id="Fsa-n1-P9a"/>
-                                            <constraint firstItem="ZJo-rj-Cn6" firstAttribute="height" secondItem="MxE-zo-wXT" secondAttribute="height" id="MnQ-bh-C4B"/>
                                             <constraint firstItem="S6Y-Mf-7xC" firstAttribute="leading" secondItem="ZJo-rj-Cn6" secondAttribute="trailing" constant="2" id="OLE-Y6-a9Q"/>
-                                            <constraint firstItem="S6Y-Mf-7xC" firstAttribute="height" secondItem="MxE-zo-wXT" secondAttribute="height" id="hhM-Xh-I2G"/>
-                                            <constraint firstAttribute="bottom" secondItem="S6Y-Mf-7xC" secondAttribute="bottom" id="s73-dP-PcY"/>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
@@ -197,9 +193,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="S6Y-Mf-7xC" firstAttribute="width" secondItem="MXp-ea-5S9" secondAttribute="width" id="24j-d2-VJl"/>
-                            <constraint firstItem="ZJo-rj-Cn6" firstAttribute="height" secondItem="MXp-ea-5S9" secondAttribute="height" id="5n2-pi-tBs"/>
-                            <constraint firstItem="q7p-hd-Ydi" firstAttribute="height" secondItem="MXp-ea-5S9" secondAttribute="height" id="LQY-Jo-FqR"/>
-                            <constraint firstItem="S6Y-Mf-7xC" firstAttribute="height" secondItem="MXp-ea-5S9" secondAttribute="height" id="eli-8U-hoT"/>
                             <constraint firstItem="S6Y-Mf-7xC" firstAttribute="width" secondItem="MXp-ea-5S9" secondAttribute="width" id="zJW-Mu-NxP"/>
                         </constraints>
                     </view>
@@ -294,7 +287,7 @@
                                 <rect key="frame" x="161" y="473" width="52" height="30"/>
                                 <state key="normal" title="시작하기"/>
                                 <connections>
-                                    <segue destination="R6w-A9-sU4" kind="show" id="zBN-r5-ugO"/>
+                                    <segue destination="R6w-A9-sU4" kind="show" id="hCi-DE-DAC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="기본 설정이 완료되었습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xf-fg-EVS">
