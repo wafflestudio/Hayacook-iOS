@@ -30,6 +30,9 @@
 		05E803A81C4246320024973D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E803A71C4246320024973D /* SearchViewController.swift */; };
 		05FC2D561C527CF7005EA37E /* IngredientsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FC2D551C527CF7005EA37E /* IngredientsCollectionViewCell.swift */; };
 		05FD77351C79742A00FDA448 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FD77341C79742A00FDA448 /* Bookmark.swift */; };
+		05FD773C1C7AF08600FDA448 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05FD773B1C7AF08600FDA448 /* KakaoOpenSDK.framework */; };
+		05FD773E1C7AF0A800FDA448 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05FD773B1C7AF08600FDA448 /* KakaoOpenSDK.framework */; };
+		05FD77451C82EABC00FDA448 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FD77441C82EABC00FDA448 /* ContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +55,6 @@
 /* Begin PBXFileReference section */
 		051150F21C68673300745E59 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		051150F41C687BBC00745E59 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		051150FE1C7450D500745E59 /* haya-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "haya-Bridging-Header.h"; sourceTree = "<group>"; };
 		051150FF1C7450D500745E59 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		051151001C7450D500745E59 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		051151021C7471E100745E59 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,9 @@
 		05E803A71C4246320024973D /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		05FC2D551C527CF7005EA37E /* IngredientsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientsCollectionViewCell.swift; sourceTree = "<group>"; };
 		05FD77341C79742A00FDA448 /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
+		05FD773B1C7AF08600FDA448 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
+		05FD77431C7FF04700FDA448 /* KakaoOpenSDK-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KakaoOpenSDK-Bridging-Header.h"; sourceTree = "<group>"; };
+		05FD77441C82EABC00FDA448 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05FD773C1C7AF08600FDA448 /* KakaoOpenSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05FD773E1C7AF0A800FDA448 /* KakaoOpenSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +120,6 @@
 			children = (
 				051150FF1C7450D500745E59 /* SWRevealViewController.h */,
 				051151001C7450D500745E59 /* SWRevealViewController.m */,
-				051150FE1C7450D500745E59 /* haya-Bridging-Header.h */,
 			);
 			name = SWRevealViewController;
 			sourceTree = "<group>";
@@ -121,6 +127,8 @@
 		058B7AAB1C3D7462000A9CF6 = {
 			isa = PBXGroup;
 			children = (
+				05FD77431C7FF04700FDA448 /* KakaoOpenSDK-Bridging-Header.h */,
+				05FD773B1C7AF08600FDA448 /* KakaoOpenSDK.framework */,
 				058B7AB61C3D7462000A9CF6 /* haya */,
 				058B7ACB1C3D7462000A9CF6 /* hayaTests */,
 				058B7AD61C3D7462000A9CF6 /* hayaUITests */,
@@ -163,6 +171,7 @@
 				051150F41C687BBC00745E59 /* PageViewController.swift */,
 				051151021C7471E100745E59 /* MenuTableViewController.swift */,
 				05FD77341C79742A00FDA448 /* Bookmark.swift */,
+				05FD77441C82EABC00FDA448 /* ContainerViewController.swift */,
 			);
 			path = haya;
 			sourceTree = "<group>";
@@ -328,6 +337,7 @@
 				051150F31C68673300745E59 /* ContentViewController.swift in Sources */,
 				058B7AEA1C3D7F46000A9CF6 /* ToolTableViewController.swift in Sources */,
 				051151031C7471E100745E59 /* MenuTableViewController.swift in Sources */,
+				05FD77451C82EABC00FDA448 /* ContainerViewController.swift in Sources */,
 				051151011C7450D500745E59 /* SWRevealViewController.m in Sources */,
 				052A56AA1C54FCC40045FD00 /* Recipe.swift in Sources */,
 				05E803A41C40FC3C0024973D /* IngredientsTableViewController.swift in Sources */,
@@ -474,11 +484,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = haya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeemin.haya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "haya/haya-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "KakaoOpenSDK-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -488,11 +506,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = haya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeemin.haya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "haya/haya-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "KakaoOpenSDK-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -523,8 +549,14 @@
 		058B7AE31C3D7462000A9CF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = hayaUITests/Info.plist;
+				"LD_MAP_FILE_PATH[arch=*]" = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeemin.hayaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = haya;
@@ -535,8 +567,13 @@
 		058B7AE41C3D7462000A9CF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = hayaUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeemin.hayaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = haya;

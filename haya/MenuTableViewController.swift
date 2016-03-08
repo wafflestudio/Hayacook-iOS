@@ -57,6 +57,16 @@ class MenuTableViewController: UITableViewController {
         return 4
     }
 
+    
+    @IBAction func logout(sender: AnyObject) {
+        print("na")
+        KOSession.sharedSession().logoutAndCloseWithCompletionHandler { [weak self] (success, error) -> Void in
+            self?.navigationController?.popViewControllerAnimated(true)
+        }
+    }
+    
+    
+    
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)

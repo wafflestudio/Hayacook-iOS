@@ -170,11 +170,15 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         // Perform your custom actions
     
         let n: Int! = self.navigationController?.viewControllers.count
-        let myUIViewController = (self.navigationController?.viewControllers[n-2])! as! SearchViewController
-        myUIViewController.collection.reloadData()
+        
+        print("n is = " , n)
+        
+        //let myUIViewController = (self.navigationController?.viewControllers[n-2])! as! ContainerViewController
+        
+       // myUIViewController.collection.reloadData()
         //myUIViewController.viewDidLoad()
         
-        myUIViewController.searchController.active = false
+        //myUIViewController.searchController.active = false
        // myUIViewController.heightMargin.constant = 0
         
         self.navigationController?.navigationBar.barTintColor = UIColor(red : 247/255, green : 247/255, blue : 247/255, alpha :1 )

@@ -12,18 +12,22 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
 
     var flag = false
    
-    @IBOutlet weak var heightMargin: NSLayoutConstraint!
+    @IBOutlet weak var h: NSLayoutConstraint!
     
    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     
+    @IBOutlet weak var heightMargin: NSLayoutConstraint!
     
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var table2: UITableView!
 
 
+    @IBOutlet weak var topView: UIView!
+    
+    
     let tableData = ["아몬드", "고추", "식용유", "오이", "카레", "계란", "가지", "간장", "마늘", "청양고추", "애호박", "햄", "꽁치", "케찹", "강낭콩", "김치", "양파", "땅콩", "무", "고기", "소금", "소시지", "참기름", "설탕", "고구마", "단호박", "참치", "감자", "비엔나소시지", "당근"]
     
     var tableData2 = [Recipe]()
@@ -97,7 +101,13 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
         }
         
         
-        self.navigationController?.navigationBar.barTintColor = UIColor(red : 247/255, green : 247/255, blue : 247/255, alpha :1 )
+        //self.navigationController?.navigationBar.barTintColor = UIColor(red : 247/255, green : 247/255, blue : 247/255, alpha :1 )
+        
+        self.topView.backgroundColor = UIColor(red : 247/255, green : 247/255, blue : 247/255, alpha :1 )
+        
+        
+        //self.navigationController?.navigationBar.barTintColor = UIColor.redColor()
+        //self.navigationController?.navigationBar.frame.origin.y = -50
 
 
         //self.navigationController?.navigationBar.shadowImage = UIImage();
@@ -178,7 +188,7 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
         
         if(havingIngredients.count == 0){
             self.searchController.active = false;
-            self.heightMargin.constant = 0
+            self.heightMargin.constant = 64
             self.tableHeight.constant = 44
         
         }
@@ -393,7 +403,7 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
         
         table2.reloadData()
         
-        if(heightMargin.constant == 60){
+        if(heightMargin.constant == 124){
             self.searchController.active = false;
         }
         else {
@@ -402,7 +412,7 @@ class SearchViewController: UIViewController ,UITableViewDataSource, UITableView
                 self.heightMargin.constant = 60
             })*/
             //table.tableHeaderView = searchController.searchBar
-            heightMargin.constant = 60
+            heightMargin.constant = 124
             tableHeight.constant = 44 * CGFloat(filteredTableData.count + 1) + 20
             self.searchController.active = false;
         }

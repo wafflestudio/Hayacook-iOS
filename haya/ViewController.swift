@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         cacao.layer.borderWidth = 0.8
         cacao.layer.borderColor = UIColor.blackColor().CGColor
         
+        
         skip.layer.borderWidth = 0.8
         skip.layer.borderColor = UIColor.blackColor().CGColor
         // Do any additional setup after loading the view, typically from a nib.
@@ -38,6 +39,24 @@ class ViewController: UIViewController {
       
         // set a variable in the second view controller with the data to pass
         
+    }
+
+    
+    @IBAction func login(sender: AnyObject) {
+        let session: KOSession = KOSession.sharedSession();
+        
+        if session.isOpen() {
+            session.close()
+        }
+        
+        session.presentingViewController = self.navigationController
+        session.openWithCompletionHandler({ (error) -> Void in
+            session.presentingViewController = nil
+            
+            if !session.isOpen() {
+                UIAlertView(title: "로그인 실패", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "확인").show()
+            }
+            }, authParams: nil, authTypes: [KOAuthType.Talk.rawValue, KOAuthType.Account.rawValue])
     }
 
 
